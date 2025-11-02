@@ -4,17 +4,19 @@ let currenInputValue = ''
 let currenOutputValue = ''
 
 for (let btn of currenInput) {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (event) => {
         for (let otherBtn of currenInput) {
             otherBtn.classList.remove('active')
         } btn.classList.add('active')
+        currenInputValue = event.target.innerText
     })
 }
 
 for (let btn of currenOutput) {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (event) => {
         for (let otherBtn of currenOutput) {
             otherBtn.classList.remove('active')
         } btn.classList.add('active')
+        currenOutputValue = event.target.innerText
     })
 }
