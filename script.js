@@ -31,14 +31,22 @@ async function convert() {
     let uah = 1
     input.addEventListener('input', () => {
         if (currenInputValue === 'UAH₴' && currenOutputValue === 'EUR€') {
-            output.value = input.value / eur
+            output.value = (input.value / eur).toFixed(2)
         } else if (currenInputValue === 'UAH₴' && currenOutputValue === 'USD$') {
-            output.value = input.value / usd
+            output.value = (input.value / usd).toFixed(2)
         } else if (currenInputValue === 'EUR€' && currenOutputValue === 'UAH₴') {
-            output.value = input.value * eur
+            output.value = (input.value * eur).toFixed(2)
         } else if (currenInputValue === 'USD$' && currenOutputValue === 'UAH₴') {
-            output.value = input.value * usd
+            output.value = (input.value * usd).toFixed(2)
         } else if (currenInputValue === 'UAH₴' && currenOutputValue === 'UAH₴') {
+            output.value = input.value
+        } else if (currenInputValue === 'USD$' && currenOutputValue === 'EUR€') {
+            output.value = ((input.value * usd) / eur).toFixed(2)
+        } else if (currenInputValue === 'EUR€' && currenOutputValue === 'USD$') {
+            output.value = ((input.value * eur) / usd).toFixed(2)
+        } else if (currenInputValue === 'EUR€' && currenOutputValue === 'EUR€') {
+            output.value = input.value
+        } else if (currenInputValue === 'USD$' && currenOutputValue === 'USD$') {
             output.value = input.value
         }
     })
